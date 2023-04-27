@@ -1,0 +1,11 @@
+<h2>Search results for '<%= @query %>'</h2>
+
+<% if @properties.any? %>
+  <ul>
+    <% @properties.each do |property| %>
+      <li><%= link_to property.address, property_path(property), class: "nav-link", class: "btn btn-outline-success", style: "text-decoration: none;"  %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No properties found.</p>
+<% end %>

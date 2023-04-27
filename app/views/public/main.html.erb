@@ -1,0 +1,64 @@
+<main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3 text-primary" >Search For new Properties today...</h1>
+        </div>
+      </div>
+
+      
+    <div class="gall">
+      <% @properties.each do |property| %>
+
+        <div class="col-4" >
+          <% if property.images.attached? %> 
+               <% (0...property.images.count).each do |image| %>
+                 <%= link_to(image_tag(property.images[image],class: "img-fluid z-depth-1 img-size",style:"height:400px;width:530px;"), property_path(property)) %>
+                 <h3 class='h3'><%= property.name %></h3>
+                 <p class='h5'><%= property.address%>
+               <% end %>  
+          <% end %>
+          </div>
+        <% end %>
+     </div> 
+
+</main>
+
+    <footer class="footer bg-dark p-3 mt-3 ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 ml-10">
+        <h5 class="text-uppercase text-light">About Us</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light" style="text-decoration: none;">Our Story</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;">Careers</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;">Press</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 ml-10">
+        <h5 class="text-uppercase text-light">Support</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light" style="text-decoration: none;">Help Center</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;">Contact Us</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;">Report a Problem</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 ml-10">
+        <h5 class="text-uppercase text-light">Connect</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light" style="text-decoration: none;"><i class="fab fa-facebook fa-lg"></i> Facebook</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;"><i class="fab fa-twitter fa-lg"></i> Twitter</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;"><i class="fab fa-instagram fa-lg"></i> Instagram</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;"><i class="fab fa-linkedin fa-lg"></i> LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-muted">© Rentie 2023</p>
+      </div>
+    </div>
+  </div>
+</footer>

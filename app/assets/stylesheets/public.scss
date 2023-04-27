@@ -1,0 +1,55 @@
+// Place all the styles related to the public controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#notifications { 
+   display: none;
+}
+
+.gall {
+   display: flex;
+   flex-wrap: wrap;
+   margin: 0 auto;
+   max-width: 1800px;
+   padding: 20px;
+   
+}
+
+.gall img {
+   max-width: 100%;
+   height: auto;
+   margin: 5px;
+   transition: transform 0.2s;
+   object-fit: cover;
+
+}
+
+.gall img-size{
+  width: 600px;
+  height: 400px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.gall img:hover {
+   transform: scale(1.1);
+}
+
+
+
+.footer {
+ 
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(13, 13, 150);
+  color: white;
+  text-align: center;
+}
+
+.footer-content nav a {
+   margin: 100px;
+   color: yellow;
+   text-decoration: underline;
+ }
+

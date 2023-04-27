@@ -1,0 +1,31 @@
+<h1 style="text-align:center;color:green;">
+            Users  
+        </h1>
+
+    <table class="table table-bordered border-primary">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name of user</th>
+      <th scope="col">Edit user</th>
+      <th scope="col">Remove user</th>
+    </tr>
+  </thead>
+  <% @users.each do |std| %>
+  <tbody>
+    <tr>
+    
+      <th scope="row"><%= std.id%></th>
+      <td><%= link_to std.name, user_path(std)%></td>
+      
+      <td><%= button_to 'Edit',edit_uaer_path(std),method:'get' %></td>
+      <td><%= button_to 'remove',user_path(std),method:'delete',data:"are you confirm" %></td>
+     
+    </tr>
+   
+  </tbody>
+
+  <%end %>
+  
+  
+</table>

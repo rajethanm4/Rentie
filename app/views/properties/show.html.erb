@@ -1,0 +1,91 @@
+<br><br>
+<div class="container pt-3">
+  <div class="row">
+    <div style = "flex:1 1 100%; width:100%;">
+    
+      <% (0...@property.images.count).each do |image| %>
+        <%= image_tag(@property.images[image],class:"img-fluid z-depth-1 mx-auto d-block", style:"width:100%;height:70%;margin-top:20px;")%>
+      <% end %>
+      
+      <br>
+      <h2><strong>Name:</strong>
+      <%= @property.name %></h2>
+    
+      <h2><strong>Address:</strong>
+      <%= @property.address %></h2>
+    
+      <h2><strong>Price:</strong>
+      <%= @property.price %></h2>
+      
+      <h2><strong>Rooms:</strong>
+      <%= @property.rooms %></h2>
+    </div> 
+  </div>
+</div>
+<hr>
+<div class="col-8">
+<h1 class="btn btn-outline-success">Agent Details</h1><br>
+<%= @property.account.first_name %>
+<%= @property.account.last_name%><br>
+<%if user_signed_in? %>
+<%= link_to 'show agent profile', accounts_show_path(id: @property.account.id),method:'get' %>
+<%end%>
+</div>
+<div class="col-8">
+<% if user_signed_in? %>
+    <%= link_to 'Book Appointments',new_appointment_path(@property.account_id),method:'get' %>
+<%elsif  account_signed_in? %>
+    <%= link_to 'show Appointments',appointments_path,method:'get' %>
+ <%end %>
+</div>
+<hr>
+<div class="col-8">
+<% if user_signed_in? %><br>
+<h3 class="btn btn-primary">Add Coments on Property</h3>
+<%= render "comments/form"%>
+<% end %>
+<br>
+<h3 class="btn btn-outline-info">Property comments</h3>
+<%= render "comments/comments" %>
+</div>
+</div>
+</div>
+
+
+<footer class="footer bg-dark p-3 mt-3 ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 ml-10">
+        <h5 class="text-uppercase text-light">About Us</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light" style="text-decoration: none;">Our Story</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;">Careers</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;">Press</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 ml-10">
+        <h5 class="text-uppercase text-light">Support</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light" style="text-decoration: none;">Help Center</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;">Contact Us</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;">Report a Problem</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 ml-10">
+        <h5 class="text-uppercase text-light">Connect</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light" style="text-decoration: none;"><i class="fab fa-facebook fa-lg"></i> Facebook</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;"><i class="fab fa-twitter fa-lg"></i> Twitter</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;"><i class="fab fa-instagram fa-lg"></i> Instagram</a></li>
+          <li><a href="#" class="text-light" style="text-decoration: none;"><i class="fab fa-linkedin fa-lg"></i> LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-muted">© Rentie 2023</p>
+      </div>
+    </div>
+  </div>
+</footer>

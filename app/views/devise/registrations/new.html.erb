@@ -1,0 +1,30 @@
+<div class="container-fluid p-0" style="height: 100vh; display: flex; justify-content: center; align-items: center; background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80'); background-size: cover; background-repeat: no-repeat;">
+  <div class="p-4" style="padding-left: 20px; width: 30%;">
+    <div class="card" style="background-color:#66AACC;">
+      <div class="card-header text-center" style="background-color:#ADD8E6;">
+        <h2 class="text-primary" style="color: #CEACE6;">Sign Up</h2>
+      </div>
+      <div class="card-body" style="background-color:#ADD8E6">
+  <div class="text-center">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <%= render "devise/shared/error_messages", resource: resource %>
+   <%= f.text_field :first_name, autofocus: true, class: "form-control ml-2", placeholder: "First Name" %>
+   <%= f.text_field :last_name, class: "form-control ml-2", placeholder: "Last Name" %>
+   <%= f.number_field :mobileno, class: "form-control ml-2", placeholder: "Mobile No" %>
+   <%= f.email_field :email, autocomplete: "email", autofocus: true, class: "form-control ml-2", placeholder: "Email" %>
+   <%= f.password_field :password, autocomplete: "new-password", class: "form-control ml-2", placeholder: "Password" %>
+   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control ml-2", placeholder: "Password confirmation" %>
+   <br><br>
+   <button class="btn btn-lg btn-primary btn-block" type="submit" style="font-size: 14px; padding: 5px 10px; width: 86px; margin-left: 190px;">Sign Up</button>
+
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+
+

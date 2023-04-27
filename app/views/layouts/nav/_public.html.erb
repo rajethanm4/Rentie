@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+  <div class="container-fluid">
+   <a class="navbar-brand" href="/" style="text-decoration: none;">Rentie</a>
+
+    <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+         <% if account_signed_in? %>
+       <%= link_to "Dashboard", properties_path, class: "nav-link", style: "text-decoration: none;" %>
+  
+        <% else %>
+        <a class="nav-link" href="/" style="text-decoration: none;">Home <span class="sr-only">(current)</span></a>    
+        <% end %>
+        </li>
+        <% if user_signed_in? %>
+        <li class="nav-item">
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link", class: "btn btn-outline-success", style: "text-decoration: none;", style: "margin-left: 1570px;" %>
+        </li>
+        <% elsif account_signed_in? %>
+        <li class="nav-item">
+        <%= button_to "Log Out", destroy_account_session_path, method: :delete, class: "nav-link", class: "btn btn-outline-success", style: "text-decoration: none;" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+       <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none;">Login</a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="accounts/sign_in" style="text-decoration: none;">Login As Agent</a>
+      <a class="dropdown-item" href="users/sign_in" style="text-decoration: none;">Login As User</a>
+      <div class="dropdown-divider"></div>
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none;">SignUp</a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="accounts/sign_up" style="text-decoration: none;">Register As Agent</a>
+      <a class="dropdown-item" href="users/sign_up" style="text-decoration: none;">Register As User</a>
+      <div class="dropdown-divider"></div>
+    </div>
+      <% end %>        
+      </ul>
+    </div>
+     <% if account_signed_in? %>
+    <div>
+    <%= form_tag search_path, method: :get do %>
+          <%= label_tag :q, 'Search properties:', style: 'color: green;'  %>
+          <%= text_field_tag :q %>
+           <%= submit_tag 'Search' ,class: "btn btn-info"%> 
+          <% end %>
+    </div>
+    <% end %>
+  </div>
+</nav>      

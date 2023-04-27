@@ -1,0 +1,33 @@
+<br><br><br>
+<h1>Agents List</h1>
+<table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Agent id</th>
+      <th scope="col">Agent First name</th>
+      <th scope="col">Agent Last name</th>
+      <th scope="col">Agent Email</th>
+      <th scope="col">Agent MobileNo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      
+      <td><%= @accounts.id %></td>
+      <td><%= @accounts.first_name %></td>
+      <td><%= @accounts.last_name %></td>
+      <td><%= @accounts.email %></td>
+      <td><%= @accounts.mobileno%></td>
+    </tr>
+     
+  </tbody>
+</table>
+<%if user_signed_in?%>
+<h3 class="btn btn-primary">Add Comments on Agent</h3>
+<%= render "comments/form"%>
+<br>
+<h3 class="btn btn-outline-info">Agent Comments</h3>
+<%= render "comments/comments"%>
+
+ <% end %>

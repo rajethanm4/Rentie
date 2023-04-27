@@ -1,0 +1,26 @@
+<br><br>
+<br><br>
+<h2>Edit Agent</h2>
+<ol>
+  <% @account.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ol>
+
+
+<%= form_for @account do |f| %>
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %><br>
+
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.label :email %><br>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :mobileno %><br>
+  <%= f.number_field :mobileno %><br>
+
+  <%= f.submit %>
+<% end %>
+

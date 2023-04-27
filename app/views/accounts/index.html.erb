@@ -1,0 +1,31 @@
+<h1 style="text-align:center;color:green;">
+            Agents  
+        </h1>
+
+    <table class="table table-bordered border-primary">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name of agent</th>
+      <th scope="col">Edit Agent</th>
+      <th scope="col">Remove Agent</th>
+    </tr>
+  </thead>
+  <% @accounts.each do |std| %>
+  <tbody>
+    <tr>
+    
+      <th scope="row"><%= std.id%></th>
+      <td><%= link_to std.name, account_path(std)%></td>
+      
+      <td><%= button_to 'Edit',edit_account_path(std),method:'get' %></td>
+      <td><%= button_to 'remove',account_path(std),method:'delete',data:"are you confirm" %></td>
+     
+    </tr>
+   
+  </tbody>
+
+  <%end %>
+  
+  
+</table>
