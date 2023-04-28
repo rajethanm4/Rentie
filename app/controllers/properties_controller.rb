@@ -3,8 +3,9 @@ class PropertiesController < ApplicationController
   before_action :authenticate_account!, only: [:new,:create,:destroy]
   before_action :set_sidebar, except: [:show]
   
+  # eager loading
   def index
-    @properties = Property.all
+    @properties = Property.includes(:account)
   end
 
   def search
